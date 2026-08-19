@@ -2,7 +2,7 @@
 title: My Journey
 description: The story of my professional journey.
 published: 2026-08-18
-draft: true
+draft: false
 tags:
   - My Career
 ---

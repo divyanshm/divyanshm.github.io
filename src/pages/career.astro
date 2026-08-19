@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = (
+  await getCollection(
+    "blog",
+    ({ id, data }) => id.startsWith("career/") && !data.draft,
+  )
+).sort(
+  (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+---
+
+<BaseLayout
+  title="Career"
+  description="Writing about careers, work, and professional growth."
+>
+  <section class="intro">
+    <h1>Career</h1>
+    <p>Writing about careers, work, and professional growth.</p>
+  </section>
+
+  {
+    posts.length > 0 ? (
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+            <time datetime={post.data.published.toISOString()}>
+              {formatDate(post.data.published)}
+            </time>
+            <p>{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No Career posts yet.</p>
+    )
+  }
+</BaseLayout>

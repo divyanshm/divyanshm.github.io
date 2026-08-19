@@ -22,6 +22,10 @@ Start writing here.
 Set `draft: true` in the frontmatter to keep a post out of the site and RSS
 feed.
 
+Career posts belong under `src/content/blog/career/`. Copy and rename
+`_template.md`, then set `draft: false` when the post is ready. Published posts
+in that folder automatically appear on the `/career` page.
+
 ## Run locally
 
 Install Node.js 22 or newer, then run:

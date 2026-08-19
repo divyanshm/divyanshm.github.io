@@ -26,6 +26,10 @@ Career posts belong under `src/content/blog/career/`. Copy and rename
 `_template.md`, then set `draft: false` when the post is ready. Published posts
 in that folder automatically appear on the `/career` page.
 
+Personal professional experience posts belong under
+`src/content/blog/my-career/`. Published posts in that folder automatically
+appear on the `/my-career` page.
+
 ## Run locally
 
 Install Node.js 22 or newer, then run:
